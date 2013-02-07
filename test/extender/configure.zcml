@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="test.extender">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <include package="archetypes.schemaextender" />
+  
+  <adapter
+    factory=".extender.ATNewsItemExtender"
+    provides="archetypes.schemaextender.interfaces.ISchemaExtender"
+    />
+  <adapter
+    factory=".extender.ATNewsItemExtender"
+    provides="archetypes.schemaextender.interfaces.ISchemaModifier" 
+    />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="test.extender"
+      directory="profiles/default"
+      description="Installs the test.extender package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <!-- -*- extra stuff goes here -*- -->
+  
+</configure>

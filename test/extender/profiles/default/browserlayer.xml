@@ -1,0 +1,1 @@
+<layers>    <layer name="test.extender"           interface="test.extender.interfaces.ITestExtender" /></layers>
